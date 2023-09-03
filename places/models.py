@@ -15,7 +15,7 @@ class Place(models.Model):
 
 
 class PlacesImage(models.Model):
-    title = models.CharField(max_length=200, blank=True, verbose_name='Заголовок')
+    title = models.CharField(max_length=200, blank=True, verbose_name='Позиция картинки')
     place = models.ForeignKey(Place,
                               blank=True,
                               null=True,
