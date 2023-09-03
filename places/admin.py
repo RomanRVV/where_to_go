@@ -1,15 +1,16 @@
 from django.contrib import admin
 from .models import *
 from django.utils.html import format_html, mark_safe
+from adminsortable2.admin import SortableAdminMixin, SortableTabularInline, SortableAdminBase
 
 
 @ admin.register(PlacesImage)
-class PlaceImageAdmin(admin.ModelAdmin):
+class PlaceImageAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ('position',
                     'place')
 
 
-class ImageInline(admin.TabularInline):
+class ImageInline(SortableTabularInline):
     model = PlacesImage
     fields = ('image',
               'get_preview',
@@ -22,7 +23,7 @@ class ImageInline(admin.TabularInline):
 
 
 @ admin.register(Place)
-class PlaceAdmin(admin.ModelAdmin):
+class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
     list_display = ['title']
     inlines = [
         ImageInline,
