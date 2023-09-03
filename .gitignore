@@ -151,3 +151,15 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 media/
+.gitattributes
+places/migrations/0002_placesimage.py
+places/migrations/0003_alter_placesimage_image.py
+places/migrations/0004_alter_placesimage_image.py
+places/migrations/0005_place_image.py
+places/migrations/0006_remove_place_image_placesimage_place.py
+places/migrations/0007_alter_placesimage_title.py
+places/migrations/0008_rename_title_placesimage_position.py
+places/migrations/0009_placesimage_position_1.py
+places/migrations/0010_remove_placesimage_position_1_and_more.py
+places/migrations/0011_alter_placesimage_options_and_more.py
+
