@@ -2,6 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.shortcuts import render, get_object_or_404
 from places.models import *
+from django.urls import reverse
 
 
 def show_main(request):
@@ -17,7 +18,7 @@ def show_main(request):
             "properties": {
                 "title": place.title,
                 "placeId": place.id,
-                "detailsUrl": "https://raw.githubusercontent.com/devmanorg/where-to-go-frontend/master/places/moscow_legends.json"
+                "detailsUrl": reverse('places', args=[place.id])
             }
         }
         features.append(feature)
