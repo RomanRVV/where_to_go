@@ -49,6 +49,21 @@ python3 manage.py runserver
 - `SECRET_KEY` — секретный ключ проекта
 - `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts).
 
+
+### Загрзука данных на сайт:
+
+Данные на сайт можно добавлять двумя способами:
+
+
+1 Через административную панель 
+
+2 Загружая данный из json файла с помощью команды([пример файла](https://raw.githubusercontent.com/devmanorg/where-to-go-places/master/places/%D0%AF%D0%BF%D0%BE%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%B0%D0%B4.json)):
+
+```sh
+python3 manage.py load_place
+```
+
+
 ## Цели проекта
 
 Код написан в учебных целях — это урок в курсе по Python и веб-разработке на сайте [Devman](https://dvmn.org).
