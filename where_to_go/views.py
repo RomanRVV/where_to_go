@@ -1,5 +1,4 @@
-from django.http import HttpResponse, JsonResponse
-from django.template import loader
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from places.models import *
 from django.urls import reverse
@@ -8,6 +7,7 @@ from django.urls import reverse
 def show_main(request):
     features = []
     places = Place.objects.all()
+    data = {}
     for place in places:
         feature = {
             "type": "Feature",
