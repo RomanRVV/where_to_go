@@ -34,8 +34,8 @@ class Command(BaseCommand):
 
         title = answer['title']
         images = answer['imgs']
-        description_short = answer['description_short']
-        description_long = answer['description_long']
+        description_short = answer['short_description']
+        description_long = answer['long_description']
         lng = answer['coordinates']['lng']
         lat = answer['coordinates']['lat']
 

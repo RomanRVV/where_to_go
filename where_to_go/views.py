@@ -39,8 +39,8 @@ def show_place(request, place_id):
     response = {
         "title": requested_place.title,
         "imgs": place_images_url,
-        "description_short": requested_place.description_short,
-        "description_long": requested_place.description_long,
+        "description_short": requested_place.short_description,
+        "description_long": requested_place.long_description,
         "coordinates": {
             "lat": requested_place.latitude,
             "lng": requested_place.longitude
