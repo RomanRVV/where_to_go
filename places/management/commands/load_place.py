@@ -30,20 +30,22 @@ class Command(BaseCommand):
 
         response = requests.get(url)
         response.raise_for_status()
-        answer = response.json()
+        payload = response.json()
 
-        title = answer['title']
-        images = answer['imgs']
-        description_short = answer['short_description']
-        description_long = answer['long_description']
-        lng = answer['coordinates']['lng']
-        lat = answer['coordinates']['lat']
+        title = payload['title']
+        images = payload['imgs']
+        short_description = payload['short_description']
+        long_description = payload['long_description']
+        lng = payload['coordinates']['lng']
+        lat = payload['coordinates']['lat']
 
         place, created = Place.objects.get_or_create(title=title,
-                                                     description_short=description_short,
-                                                     description_long=description_long,
                                                      longitude=lng,
-                                                     latitude=lat)
+                                                     latitude=lat,
+                                                     defaults={
+                                                         'short_description': short_description,
+                                                         'long_description': long_description,
+                                                     })
 
         for image in images:
             upload_image(place, image)

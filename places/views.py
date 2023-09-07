@@ -6,22 +6,22 @@ from places.models import Place
 
 
 def show_main(request):
-    features = []
     places = Place.objects.all()
-    for place in places:
-        feature = {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [place.longitude, place.latitude]
-            },
-            "properties": {
-                "title": place.title,
-                "placeId": place.id,
-                "detailsUrl": reverse('places', args=[place.id])
-            }
+    features = [{
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [place.longitude, place.latitude]
+        },
+        "properties": {
+            "title": place.title,
+            "placeId": place.id,
+            "detailsUrl": reverse('places', args=[place.id])
         }
-        features.append(feature)
+    }
+        for place in places
+
+    ]
     geojson = {
         "type": "FeatureCollection",
         "features": features
@@ -31,9 +31,8 @@ def show_main(request):
 
 
 def show_place(request, place_id):
-    requested_place = get_object_or_404(Place, id=place_id).prefetch_related('images')
-    place_images = requested_place.images
-    place_images_url = [place.image.url for place in place_images.all()]
+    requested_place = get_object_or_404(Place.objects.prefetch_related('images'), id=place_id)
+    place_images_url = [image.image.url for image in requested_place.images.all()]
 
     response = {
         "title": requested_place.title,

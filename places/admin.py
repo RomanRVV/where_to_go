@@ -34,3 +34,4 @@ class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
 
 
 
+

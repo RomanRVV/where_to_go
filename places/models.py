@@ -12,6 +12,9 @@ class Place(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        unique_together = ('longitude', 'latitude')
+
 
 class PlacesImage(models.Model):
     position = models.PositiveIntegerField(default=0,
