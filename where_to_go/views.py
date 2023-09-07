@@ -1,7 +1,8 @@
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
-from places.models import *
 from django.urls import reverse
+
+from places.models import *
 
 
 def show_main(request):

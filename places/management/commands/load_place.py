@@ -1,8 +1,10 @@
-from django.core.management.base import BaseCommand
-import requests
-from places.models import *
-from django.core.files.base import ContentFile
 from urllib.parse import urlparse
+
+from django.core.management.base import BaseCommand
+from django.core.files.base import ContentFile
+import requests
+
+from places.models import *
 
 
 class Command(BaseCommand):
