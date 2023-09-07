@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand
 from django.core.files.base import ContentFile
 import requests
 
-from places.models import *
+from places.models import Place, PlacesImage
 
 
 class Command(BaseCommand):
