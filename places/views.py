@@ -23,11 +23,11 @@ def show_main(request):
             }
         }
         features.append(feature)
-        geojson = {
-            "type": "FeatureCollection",
-            "features": features
-        }
-        data = {'geojson': geojson}
+    geojson = {
+        "type": "FeatureCollection",
+        "features": features
+    }
+    data = {'geojson': geojson}
     return render(request, 'index.html', context=data)
 
 
