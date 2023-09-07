@@ -163,3 +163,4 @@ places/migrations/0009_placesimage_position_1.py
 places/migrations/0010_remove_placesimage_position_1_and_more.py
 places/migrations/0011_alter_placesimage_options_and_more.py
 
+collected_static/
