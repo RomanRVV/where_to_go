@@ -8,7 +8,6 @@ from places.models import Place
 def show_main(request):
     features = []
     places = Place.objects.all()
-    data = {}
     for place in places:
         feature = {
             "type": "Feature",
@@ -27,12 +26,12 @@ def show_main(request):
         "type": "FeatureCollection",
         "features": features
     }
-    data = {'geojson': geojson}
-    return render(request, 'index.html', context=data)
+    context = {'geojson': geojson}
+    return render(request, 'index.html', context=context)
 
 
 def show_place(request, place_id):
-    requested_place = get_object_or_404(Place, id=place_id)
+    requested_place = get_object_or_404(Place, id=place_id).prefetch_related('images')
     place_images = requested_place.images
     place_images_url = [place.image.url for place in place_images.all()]
 
