@@ -34,8 +34,8 @@ class Command(BaseCommand):
 
         title = payload['title']
         images = payload['imgs']
-        short_description = payload['short_description']
-        long_description = payload['long_description']
+        short_description = payload.get('short_description', '')
+        long_description = payload.get('long_description', '')
         lng = payload['coordinates']['lng']
         lat = payload['coordinates']['lat']
 
