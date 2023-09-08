@@ -33,7 +33,7 @@ class Command(BaseCommand):
         payload = response.json()
 
         title = payload['title']
-        images = payload['imgs']
+        images = payload.get('imgs', [])
         short_description = payload.get('short_description', '')
         long_description = payload.get('long_description', '')
         lng = payload['coordinates']['lng']
